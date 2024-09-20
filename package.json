@@ -1,11 +1,21 @@
 {
   "name": "ts-morse",
-  "version": "0.1.0",
+  "version": "0.1.1",
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/R3iP-7c1/ts-morse"
+  },
   "type": "module",
+  "main": "./dist/index.js",
+  "types": "./dist/index.d.ts",
   "description": "Detect SOS morse code with mouse clicks",
-  "main": "index.js",
   "author": "Pierrick WAXIN-SAUR",
   "license": "UNLICENSED",
+  "keywords": [
+    "morse",
+    "SOS",
+    "click"
+  ],
   "private": false,
   "scripts": {
     "dev": "vite",
