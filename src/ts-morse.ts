@@ -12,8 +12,8 @@ let elmMorse: ElmMorse[] = [];
  * Detect SOS morse signal from the given element.
  * @param element - The html element.
  * @param callback - The function called when the signal is detected.
- */
-export const detectSos = (elm: HTMLElement, cb: () => void) => {
+*/
+export const detectSos = (elm: HTMLElement, callback: () => void): void => {
 
   if (elmMorse.some(em => em.elm === elm)) {
     console.warn('Element already registered');
@@ -23,7 +23,7 @@ export const detectSos = (elm: HTMLElement, cb: () => void) => {
   elmMorse.push({
     elm: elm,
     code: [],
-    cb: cb,
+    cb: callback,
   });
 
   elm.addEventListener('mousedown', () => {
