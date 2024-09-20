@@ -1,6 +1,6 @@
 {
   "name": "ts-morse",
-  "version": "0.1.4",
+  "version": "0.1.5",
   "repository": {
     "type": "git",
     "url": "git+https://github.com/R3iP-7c1/ts-morse.git"
@@ -23,7 +23,7 @@
   "scripts": {
     "dev": "vite",
     "build": "vite build",
-    "prepublish": "yarn build"
+    "prepare": "yarn build"
   },
   "devDependencies": {
     "@types/node": "^22.5.5",
