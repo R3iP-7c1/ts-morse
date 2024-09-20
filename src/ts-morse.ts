@@ -8,6 +8,11 @@ interface ElmMorse {
 
 let elmMorse: ElmMorse[] = [];
 
+/**
+ * Detect SOS morse signal from the given element.
+ * @param element - The html element.
+ * @param callback - The function called when the signal is detected.
+ */
 export const detectSos = (elm: HTMLElement, cb: () => void) => {
 
   if (elmMorse.some(em => em.elm === elm)) {
