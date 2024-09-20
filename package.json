@@ -1,9 +1,9 @@
 {
   "name": "ts-morse",
-  "version": "0.1.3",
+  "version": "0.1.4",
   "repository": {
     "type": "git",
-    "url": "https://github.com/R3iP-7c1/ts-morse"
+    "url": "git+https://github.com/R3iP-7c1/ts-morse.git"
   },
   "type": "module",
   "main": "./dist/index.js",
