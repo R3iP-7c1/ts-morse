@@ -1,0 +1,1 @@
+export { detectSos } from './ts-morse';

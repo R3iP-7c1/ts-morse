@@ -1,0 +1,22 @@
+{
+  "name": "ts-morse",
+  "version": "0.1.0",
+  "type": "module",
+  "description": "Detect SOS morse code with mouse clicks",
+  "main": "index.js",
+  "author": "Pierrick WAXIN-SAUR",
+  "license": "UNLICENSED",
+  "private": false,
+  "scripts": {
+    "dev": "vite",
+    "build": "vite build"
+  },
+  "devDependencies": {
+    "autoprefixer": "^10.4.20",
+    "postcss": "^8.4.47",
+    "sass": "^1.79.1",
+    "tailwindcss": "^3.4.12",
+    "vite": "^5.4.6",
+    "vite-plugin-dts": "^4.2.1"
+  }
+}

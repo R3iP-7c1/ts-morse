@@ -1,0 +1,18 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <link rel="stylesheet" href="/src/main.scss">
+  <title>Document</title>
+</head>
+<body class="w-full min-h-screen flex items-center flex-col justify-start bg-gray-800 text-white">
+  <h1 class="mt-6 text-3xl font-semibold">TS MORSE</h1>
+  <main class="flex flex-col items-center justify-center gap-4 grow">
+    <div class="sos w-64 aspect-square select-none flex items-center justify-center cursor-cell bg-gray-600 shadow-sm shadow-white">Tap here</div>
+    <div id="msg" class="h-8 text-red-600 font-semibold"></div>
+  </main>
+
+  <script src="/src/main.ts" type="module"></script>
+</body>
+</html>
