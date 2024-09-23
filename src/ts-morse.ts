@@ -4,10 +4,11 @@ interface ElmMorse {
   timerId?: ReturnType<typeof setTimeout>,
   code: string[],
   cb: () => void,
+  touch: boolean,
   } 
 
 let elmMorse: ElmMorse[] = [];
-
+const msg = document.querySelector<HTMLDivElement>('#msg');
 /**
  * Detect SOS morse signal from the given element.
  * @param element - The html element.
@@ -24,9 +25,10 @@ export const detectSos = (elm: HTMLElement, callback: () => void): void => {
     elm: elm,
     code: [],
     cb: callback,
+    touch: false,
   });
 
-  elm.addEventListener('mousedown', () => {
+  const morseStart = (elm: HTMLElement) => {
     const elmM = elmMorse.find(em => em.elm === elm);
     if (!elmM) {
       console.warn('Element not registered');
@@ -42,22 +44,23 @@ export const detectSos = (elm: HTMLElement, callback: () => void): void => {
     elmM.timerId = setTimeout(() => {
       elmM.time = undefined;
       elmM.code = [];
-    }, 2000)
-
-  })
-
-
-  elm.addEventListener('mouseup', () => {
-  const elmM = elmMorse.find(em => em.elm === elm);
-  if (!elmM) {
-    console.warn('Element not registered');
-    return;
+    }, 2000);
   }
 
-  if(!elmM.time) return;
+  const morseEnd = (elm: HTMLElement) => {
+    const elmM = elmMorse.find(em => em.elm === elm);
+    if (!elmM) {
+      console.warn('Element not registered');
+      return;
+    }
 
-  elmM.code.push(new Date().getTime() - elmM.time.getTime() < 200 ? '.' : '-');
-    if(elmM.code.flat().join('') === '...---...') {
+    
+
+    if (!elmM.time) return;
+
+    elmM.code.push(new Date().getTime() - elmM.time.getTime() < 200 ? '.' : '-');
+
+    if (elmM.code.flat().join('') === '...---...') {
       elmM.cb();
     }
 
@@ -67,8 +70,33 @@ export const detectSos = (elm: HTMLElement, callback: () => void): void => {
 
     elmM.timerId = setTimeout(() => {
       elmM.time = undefined;
+      elmM.touch = false;
       elmM.code = [];
     }, 2000)
+  }
 
-  })
+  elm.addEventListener('mousedown', () => {
+    const elmM = elmMorse.find(em => em.elm === elm);
+    if (!elmM || elmM.touch) return;
+    morseStart(elm);
+  });
+  elm.addEventListener('touchstart', () => {
+    const elmM = elmMorse.find(em => em.elm === elm);
+    if (!elmM) return;
+    elmM.touch = true;
+    morseStart(elm);
+  });
+
+
+  elm.addEventListener('mouseup', () => {
+    const elmM = elmMorse.find(em => em.elm === elm);
+    if (!elmM || elmM.touch) return;
+    morseEnd(elm);
+  });
+  elm.addEventListener('touchend', () => {
+    const elmM = elmMorse.find(em => em.elm === elm);
+    if (!elmM) return;
+    morseEnd(elm);
+  });
+  
 };

@@ -4,6 +4,9 @@ import dts from 'vite-plugin-dts';
 import { rename } from 'fs';
 
 export default defineConfig({
+  server: {
+    host: '0.0.0.0',
+  },
   css: {
     preprocessorOptions: {
       scss: {
