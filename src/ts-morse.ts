@@ -8,7 +8,6 @@ interface ElmMorse {
   } 
 
 let elmMorse: ElmMorse[] = [];
-const msg = document.querySelector<HTMLDivElement>('#msg');
 /**
  * Detect SOS morse signal from the given element.
  * @param element - The html element.
